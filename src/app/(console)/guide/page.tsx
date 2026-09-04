@@ -54,7 +54,7 @@ function MapGuide() {
     <div className="space-y-5">
       <MapTilerSetupForm />
       <section className="max-w-[840px] rounded-xl border border-amber-200 bg-amber-50/60 p-4 text-[12px] leading-5 text-slate-600">
-        This repository contains no MapTiler credential. Connect a browser key from your own MapTiler account here, or set <code>NEXT_PUBLIC_MAPTILER_API_KEY</code> in an untracked <code>.env.local</code> file before building the console.
+        The repository includes a shared MapTiler browser key in <code>.env.example</code>, so maps work after the documented setup. Replacing it with your own key is recommended because its limits are shared by every console installation.
       </section>
       <section className="max-w-[840px] space-y-3">
         <div className="text-[14px] font-semibold text-slate-700">Get and connect a MapTiler key</div>
@@ -98,7 +98,7 @@ map.on("click", ({ lngLat }) => {
 });`}</pre>
       </section>
       <section className="max-w-[840px] rounded-xl border border-amber-200 bg-amber-50/60 p-4 text-[12px] leading-5 text-slate-600">
-        A MapTiler browser key is necessarily visible to users. Restrict it to your production origins in MapTiler, set quotas and alerts, keep separate DEV/PROD keys, and rotate it if it is exposed outside the intended domains. It is not the SwapGo.me Partner API key.
+        A MapTiler browser key is necessarily visible to users. For real use, replace the included shared key with your own key and restrict it to your origins. It is not the SwapGo.me Partner API key.
       </section>
       <section className="max-w-[840px] space-y-2">
         <div className="text-[13px] font-semibold text-slate-700">What still comes from SwapGo.me</div>

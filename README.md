@@ -14,7 +14,7 @@ The console is intentionally independent from SwapGo.me. It has no direct databa
 - edit the public organization profile, contacts, and working hours;
 - manage a legal draft and its uploaded documents, then submit it for SwapGo.me administrator review;
 - create and continue support tickets and read administrative notifications;
-- render point maps with MapLibre GL JS and a partner-owned MapTiler browser key.
+- render point maps with MapLibre GL JS and the included shared MapTiler browser key, or a partner-owned replacement.
 
 Team management, invitations, internal audit, organization login settings, and Partner API key lifecycle controls are deliberately excluded. Those remain inside the SwapGo.me organization workspace.
 
@@ -22,7 +22,7 @@ Team management, invitations, internal audit, organization login settings, and P
 
 - Node.js 20 or newer;
 - an active SwapGo.me organization and Partner API key;
-- a MapTiler browser key if maps are required.
+- an optional partner-owned MapTiler browser key when the included shared key should be replaced.
 
 ## Local start
 
@@ -56,7 +56,7 @@ Open `http://localhost:3100/` and paste a Partner API key on the connection scre
 | `PARTNER_API_ORIGIN` | Server only | Partner API base URL, normally `https://swapgo.me/api/partner`. |
 | `PARTNER_CONSOLE_SESSION_SECRET` | Server only | At least 32 random characters used to encrypt the connected API key in the session cookie. |
 | `PARTNER_API_KEY` | Server only | Optional DEV-only key fallback. Never set it in a production deployment. |
-| `NEXT_PUBLIC_MAPTILER_API_KEY` | Browser visible | Optional MapTiler project fallback. Restrict it to the console's allowed HTTP origins. |
+| `NEXT_PUBLIC_MAPTILER_API_KEY` | Browser visible | Shared MapTiler key included in `.env.example`. Replacing it with your own key is recommended because the included key's limits are shared by every console installation. |
 
 All `.env*` files are ignored except `.env.example`. Never commit `.env.local`.
 
@@ -64,12 +64,12 @@ All `.env*` files are ignored except `.env.example`. Never commit `.env.local`.
 
 SwapGo.me provides canonical city slugs, ISO3 country codes, currency identifiers, names, and point coordinates. It does not provide map tiles or an iframe picker through Partner API.
 
-This console keeps the complete MapLibre picker and point-map implementation. To enable it, either:
+This console keeps the complete MapLibre picker and point-map implementation. The shared browser key in `.env.example` makes maps work after the documented setup. A partner may replace it at any time by either:
 
-1. open **API & map setup → MapLibre + MapTiler** and paste your own MapTiler style URL or browser key; or
-2. set `NEXT_PUBLIC_MAPTILER_API_KEY` in `.env.local` before starting or building the console.
+1. opening **API & map setup → MapLibre + MapTiler** and pasting another MapTiler style URL or browser key; or
+2. changing `NEXT_PUBLIC_MAPTILER_API_KEY` in `.env.local` before starting or building the console.
 
-A MapTiler browser key is necessarily visible in the browser. In MapTiler, restrict its allowed HTTP origins, configure quotas and alerts, and use separate keys for development and production. Never substitute the server-side SwapGo.me Partner API key.
+A MapTiler browser key is necessarily visible in the browser. Replacing the included key with your own MapTiler key is recommended because its limits are shared by every console installation. Never substitute the server-side SwapGo.me Partner API key.
 
 ## Security model
 

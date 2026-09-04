@@ -79,7 +79,7 @@ function MapTilerSetupFormState({ config }: { config: ReturnType<typeof useMapPr
       {!saved && config.styleUrl ? (
         config.source === "project" ? (
           <p className="mt-2 max-w-[760px] rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-800">
-            Maps currently use <code>NEXT_PUBLIC_MAPTILER_API_KEY</code> from this deployment. Replace it with your own browser-restricted MapTiler key before publishing the console.
+            Maps currently use the shared <code>NEXT_PUBLIC_MAPTILER_API_KEY</code>. Replacing it with your own key is recommended because its limits are shared by every console installation.
           </p>
         ) : (
           <p className="mt-2 text-[11px] text-slate-500">Current source: this browser.</p>
