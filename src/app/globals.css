@@ -1,0 +1,39 @@
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background: #f8fafc;
+}
+
+body {
+  margin: 0;
+  color: #475569;
+  background: #f8fafc;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  html[data-partner-sidebar-pref="rail"] [data-partner-sidebar="full"] {
+    width: 54px !important;
+    margin-right: 0 !important;
+    visibility: hidden !important;
+    transition: none !important;
+  }
+
+  html[data-partner-sidebar-pref="rail"] [data-partner-content="full"] {
+    padding-left: 54px !important;
+  }
+}
