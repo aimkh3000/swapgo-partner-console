@@ -2,6 +2,8 @@
 
 A small, English-only reference product for testing and integrating the [SwapGo.me Partner API](https://swapgo.me/org/partner). Partners can run it as a ready-made console, use it as an integration test client, or copy the relevant flows into their own product.
 
+Read the public [Partner API integration guide](docs/PARTNER_API.md) for endpoints, canonical references, pagination, mutation contracts, retry rules, and security requirements.
+
 The console is intentionally independent from SwapGo.me. It has no direct database access and does not import internal organization services. Its Next.js server communicates with Partner API; the browser communicates only with a strict same-origin backend-for-frontend (BFF).
 
 ## Included workflows
